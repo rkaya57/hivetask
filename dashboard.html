@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Hive | Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="container topbar-inner">
+    <a class="brand" href="index.html">
+      <div class="logo">TH</div>
+      <div>
+        <div style="font-weight:800">Task Hive</div>
+        <div class="muted" style="font-size:.84rem">Web3 Görev Platformu</div>
+      </div>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Ana Sayfa</a>
+      <a class="active" href="dashboard.html">Dashboard</a>
+      <a href="tasks.html">Görevler</a>
+      <a href="leaderboard.html">Liderlik</a>
+      <a href="admin.html">Admin</a>
+    </nav>
+    <div class="actions">
+      <a class="btn-ghost" href="auth.html">Giriş / Kayıt</a>
+      <span class="wallet-chip">Firebase Ready</span>
+    </div>
+  </div>
+</header>
+
+<div class="container page">
+  <div class="layout">
+    <aside class="sidebar">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <strong>Kontrol Merkezi</strong>
+          <div class="muted" style="font-size:.92rem">Task Hive Full Setup</div>
+        </div>
+        <span class="pill">Live Ready</span>
+      </div>
+      <div class="menu">
+        <a class="active" href="dashboard.html"><span class="icon">◫</span><span>Dashboard</span></a>
+        <a href="tasks.html"><span class="icon">✓</span><span>Görev Merkezi</span></a>
+        <a href="leaderboard.html"><span class="icon">★</span><span>Liderlik</span></a>
+        <a href="admin.html"><span class="icon">⚙</span><span>Admin Paneli</span></a>
+        <a href="index.html"><span class="icon">⌂</span><span>Landing Page</span></a>
+      </div>
+      <div class="wallet-box" style="margin-top:18px">
+        <div class="muted" style="font-size:.92rem">Kullanıcı Özeti</div>
+        <div style="margin-top:10px;font-weight:800" id="sideUsername">Misafir</div>
+        <div class="muted" id="sideEmail" style="margin-top:6px;word-break:break-all">-</div>
+      </div>
+      <div class="promo-box" style="margin-top:18px">
+        <div class="badge">v7</div>
+        <h3 style="margin:14px 0 8px">Gelişmiş Dashboard</h3>
+        <p class="muted" style="line-height:1.7">
+          Kullanıcı istatistikleri, son gönderimler, durum analizi ve tamamlanan görev görünümü eklendi.
+        </p>
+      </div>
+    </aside>
+
+    <main>
+      <section class="section-title">
+        <div>
+          <h1>Kullanıcı Dashboard</h1>
+          <p>Profil özeti, görev performansı, submission geçmişi ve durum kartları tek ekranda.</p>
+        </div>
+        <div class="filter-row">
+          <span class="badge">Live Firestore</span>
+          <span class="badge">Submission History</span>
+          <span class="badge">User Stats</span>
+        </div>
+      </section>
+
+      <div id="dashNotice" class="notice hide" style="margin-bottom:18px"></div>
+
+      <section class="grid-4">
+        <div class="metric-card">
+          <span class="muted">Kullanıcı</span>
+          <strong id="dashUsername">-</strong>
+          <div class="muted" id="dashEmail">-</div>
+        </div>
+        <div class="metric-card">
+          <span class="muted">Toplam puan</span>
+          <strong id="dashPoints">0</strong>
+          <div class="muted">users.points</div>
+        </div>
+        <div class="metric-card">
+          <span class="muted">Onaylanan görev</span>
+          <strong id="dashApproved">0</strong>
+          <div class="muted">approved submissions</div>
+        </div>
+        <div class="metric-card">
+          <span class="muted">Bekleyen görev</span>
+          <strong id="dashPending">0</strong>
+          <div class="muted">pending submissions</div>
+        </div>
+      </section>
+
+      <section class="grid-4" style="margin-top:18px">
+        <div class="metric-card">
+          <span class="muted">Reddedilen görev</span>
+          <strong id="dashRejected">0</strong>
+          <div class="muted">rejected submissions</div>
+        </div>
+        <div class="metric-card">
+          <span class="muted">Toplam gönderim</span>
+          <strong id="dashTotalSubmissions">0</strong>
+          <div class="muted">all submissions</div>
+        </div>
+        <div class="metric-card">
+          <span class="muted">Tahmini ödül</span>
+          <strong id="dashEstimate">$0.00</strong>
+          <div class="muted">demo dönüşüm</div>
+        </div>
+        <div class="metric-card">
+          <span class="muted">Rozet seviyesi</span>
+          <strong id="dashBadge">Newbie</strong>
+          <div class="muted">puan bazlı</div>
+        </div>
+      </section>
+
+      <section class="grid-2" style="margin-top:24px">
+        <div class="panel">
+          <div class="panel-head">
+            <div><h3>Durum Özeti</h3><div class="muted" style="font-size:.92rem">Submission dağılımı</div></div>
+          </div>
+          <div class="panel-body">
+            <div class="chart-card">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+                <div>
+                  <strong>Görev İlerleme Görünümü</strong>
+                  <div class="muted" style="font-size:.92rem">Onay / bekleme / red oranı</div>
+                </div>
+                <span class="pill" id="dashCompletionRate">%0</span>
+              </div>
+              <div style="display:grid;gap:14px">
+                <div>
+                  <div style="display:flex;justify-content:space-between;margin-bottom:8px"><span class="muted">Onaylanan</span><span id="approvedPercent">0%</span></div>
+                  <div class="bar"><span id="approvedBar" style="width:0%"></span></div>
+                </div>
+                <div>
+                  <div style="display:flex;justify-content:space-between;margin-bottom:8px"><span class="muted">Bekleyen</span><span id="pendingPercent">0%</span></div>
+                  <div class="bar"><span id="pendingBar" style="width:0%"></span></div>
+                </div>
+                <div>
+                  <div style="display:flex;justify-content:space-between;margin-bottom:8px"><span class="muted">Reddedilen</span><span id="rejectedPercent">0%</span></div>
+                  <div class="bar"><span id="rejectedBar" style="width:0%"></span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="notice-card" style="margin-top:18px">
+              <strong style="display:block;margin-bottom:8px">Hızlı Yorum</strong>
+              <p class="muted" id="dashInsight" style="line-height:1.8">
+                Giriş yaptığında burada görev performansına göre kısa bir yorum görünecek.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <div><h3>Son Tamamlanan Görevler</h3><div class="muted" style="font-size:.92rem">Onaylanan en son submission’lar</div></div>
+          </div>
+          <div class="panel-body">
+            <div id="recentApprovedList" class="list"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" style="margin-top:24px">
+        <div class="panel-head">
+          <div><h3>Submission Geçmişi</h3><div class="muted" style="font-size:.92rem">Kendi gönderim geçmişin</div></div>
+        </div>
+        <div class="panel-body">
+          <div id="submissionHistoryList" class="list"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container footer-row">
+    <div>© 2026 Task Hive. Firebase ready sürüm.</div>
+    <div>HTML + CSS + JavaScript + Firebase</div>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script type="module" src="dashboard.js"></script>
+</body>
+</html>
