@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Hive | Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container topbar-inner">
+    <a class="brand" href="index.html">
+      <div class="logo">TH</div>
+      <div>
+        <div style="font-weight:800">Task Hive</div>
+        <div class="muted" style="font-size:.84rem">Web3 Görev Platformu</div>
+      </div>
+    </a>
+    <nav class="nav">
+      <a class="" href="index.html">Ana Sayfa</a>
+      <a class="" href="dashboard.html">Dashboard</a>
+      <a class="" href="tasks.html">Görevler</a>
+      <a class="" href="leaderboard.html">Liderlik</a>
+      <a class="active" href="admin.html">Admin</a>
+    </nav>
+    <div class="actions">
+      <a class="btn-ghost" href="auth.html">Giriş / Kayıt</a>
+      <span class="wallet-chip">Firebase Ready</span>
+    </div>
+  </div>
+</header>
+
+  <div class="container page">
+    <div class="layout">
+
+<aside class="sidebar">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <div>
+      <strong>Kontrol Merkezi</strong>
+      <div class="muted" style="font-size:.92rem">Task Hive Full Setup</div>
+    </div>
+    <span class="pill">Live Ready</span>
+  </div>
+  <div class="menu">
+    <a class="" href="dashboard.html"><span class="icon">◫</span><span>Dashboard</span></a>
+    <a class="" href="tasks.html"><span class="icon">✓</span><span>Görev Merkezi</span></a>
+    <a class="" href="leaderboard.html"><span class="icon">★</span><span>Liderlik</span></a>
+    <a class="active" href="admin.html"><span class="icon">⚙</span><span>Admin Paneli</span></a>
+    <a class="" href="index.html"><span class="icon">⌂</span><span>Landing Page</span></a>
+  </div>
+  <div class="wallet-box" style="margin-top:18px">
+    <div class="muted" style="font-size:.92rem">Kurulum Notu</div>
+    <p class="muted" style="margin-top:10px;line-height:1.7">
+      <small class="code">firebase.js</small> içindeki config alanını doldurduğunda proje canlı veriye bağlanır.
+    </p>
+  </div>
+  <div class="promo-box" style="margin-top:18px">
+    <div class="badge">Email Auth</div>
+    <h3 style="margin:14px 0 8px">Hazır veri akışı</h3>
+    <p class="muted" style="line-height:1.7">Kayıt ol, görev ekle, görevleri listele, kanıt gönder, leaderboard göster.</p>
+  </div>
+</aside>
+
+      <main>
+<section class="section-title">
+  <div>
+    <h1>Admin Paneli</h1>
+    <p>Bu sayfa yeni görev ekler ve gönderilen kanıtları listeler.</p>
+  </div>
+  <div class="filter-row">
+    <span class="badge">tasks</span>
+    <span class="badge">submissions</span>
+    <span class="badge">Firestore</span>
+  </div>
+</section>
+
+<section class="grid-2">
+  <div class="panel">
+    <div class="panel-head">
+      <div><h3>Yeni Görev Oluştur</h3><div class="muted" style="font-size:.92rem">tasks koleksiyonuna eklenir</div></div>
+    </div>
+    <div class="panel-body">
+      <form id="taskForm" class="form-grid">
+        <div class="input-row">
+          <label for="taskName">Görev adı</label>
+          <input id="taskName" type="text" placeholder="Örn: X paylaşım görevi" required />
+        </div>
+        <div class="split">
+          <div class="input-row">
+            <label for="taskCategory">Kategori</label>
+            <select id="taskCategory">
+              <option>Sosyal Medya</option>
+              <option>On-chain</option>
+              <option>Topluluk</option>
+              <option>İçerik Üretimi</option>
+            </select>
+          </div>
+          <div class="input-row">
+            <label for="taskReward">Ödül</label>
+            <input id="taskReward" type="number" placeholder="250" required />
+          </div>
+        </div>
+        <div class="input-row">
+          <label for="taskDeadline">Son tarih</label>
+          <input id="taskDeadline" type="date" />
+        </div>
+        <div class="input-row">
+          <label for="taskDesc">Görev açıklaması</label>
+          <textarea id="taskDesc" placeholder="Görevin nasıl yapılacağını yaz"></textarea>
+        </div>
+        <button class="btn" type="submit">Görevi Ekle</button>
+        <div id="taskNotice" class="notice hide"></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head">
+      <div><h3>Gönderilen Kanıtlar</h3><div class="muted" style="font-size:.92rem">submissions listesi</div></div>
+    </div>
+    <div class="panel-body">
+      <div id="submissionsWrap" class="list"></div>
+    </div>
+  </div>
+</section>
+
+<section class="panel" style="margin-top:24px">
+  <div class="panel-head">
+    <div><h3>Mevcut Görevler</h3><div class="muted" style="font-size:.92rem">tasks listesi</div></div>
+  </div>
+  <div class="panel-body">
+    <div class="table-wrap">
+      <table id="adminTable">
+        <thead>
+          <tr><th>Görev</th><th>Kategori</th><th>Ödül</th><th>Deadline</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+</main>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container footer-row">
+      <div>© 2026 Task Hive. Firebase ready sürüm.</div>
+      <div>HTML + CSS + JavaScript + Firebase</div>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+  <script type="module" src="admin.js"></script>
+</body>
+</html>

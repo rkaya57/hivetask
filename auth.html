@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Hive | Giriş / Kayıt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="auth-shell">
+  <div class="auth-wrap">
+    <section class="auth-showcase">
+      <div>
+        <span class="pill">Task Hive Access</span>
+        <h1 style="font-size:clamp(2.3rem,4vw,4.4rem);line-height:.95;max-width:9ch;margin:18px 0;letter-spacing:-.045em">
+          Web3 görevlerine <span class="gradient">profesyonel giriş.</span>
+        </h1>
+        <p class="muted" style="line-height:1.8;max-width:60ch">
+          Bu sayfa Firebase Authentication ile çalışır. Kayıt olan kullanıcı otomatik olarak users koleksiyonuna eklenir.
+        </p>
+      </div>
+      <div class="grid-4" style="grid-template-columns:repeat(2,1fr)">
+        <div class="stat-card"><strong>Auth</strong><span class="muted">Email/Password</span></div>
+        <div class="stat-card"><strong>Users</strong><span class="muted">Firestore</span></div>
+        <div class="stat-card"><strong>Role</strong><span class="muted">user default</span></div>
+        <div class="stat-card"><strong>Ready</strong><span class="muted">Dashboard link</span></div>
+      </div>
+    </section>
+
+    <section class="auth-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px">
+        <div>
+          <h2 style="font-size:1.8rem">Hesabına eriş</h2>
+          <div class="muted" id="authStateText">Henüz giriş yapılmadı</div>
+        </div>
+        <span id="authWalletStatus" class="wallet-chip">Bağlı değil</span>
+      </div>
+
+      <div class="auth-tabs">
+        <button id="loginTab" class="active">Giriş Yap</button>
+        <button id="registerTab">Kayıt Ol</button>
+      </div>
+
+      <div id="loginBox">
+        <form id="loginForm" class="form-grid">
+          <div class="input-row">
+            <label>E-posta</label>
+            <input id="loginEmail" type="email" placeholder="ornek@mail.com" required />
+          </div>
+          <div class="input-row">
+            <label>Şifre</label>
+            <input id="loginPassword" type="password" placeholder="••••••••" required />
+          </div>
+          <button class="btn" type="submit">Giriş Yap</button>
+        </form>
+      </div>
+
+      <div id="registerBox" class="hide">
+        <form id="registerForm" class="form-grid">
+          <div class="split">
+            <div class="input-row">
+              <label>Ad Soyad</label>
+              <input id="registerName" type="text" placeholder="Rıdvan Kaya" required />
+            </div>
+            <div class="input-row">
+              <label>Kullanıcı Adı</label>
+              <input id="registerUsername" type="text" placeholder="ridvanx" required />
+            </div>
+          </div>
+          <div class="input-row">
+            <label>E-posta</label>
+            <input id="registerEmail" type="email" placeholder="ornek@mail.com" required />
+          </div>
+          <div class="split">
+            <div class="input-row">
+              <label>Şifre</label>
+              <input id="registerPassword" type="password" placeholder="••••••••" required />
+            </div>
+            <div class="input-row">
+              <label>Şifre Tekrar</label>
+              <input id="registerPassword2" type="password" placeholder="••••••••" required />
+            </div>
+          </div>
+          <button class="btn" type="submit">Hesap Oluştur</button>
+        </form>
+      </div>
+
+      <div id="authNotice" class="notice hide" style="margin-top:18px"></div>
+      <div style="display:flex;gap:12px;margin-top:16px">
+        <a class="btn-secondary" href="dashboard.html">Dashboard</a>
+        <button id="logoutBtn" class="btn-ghost hide" type="button">Çıkış Yap</button>
+      </div>
+    </section>
+  </div>
+</div>
+<script type="module" src="auth.js"></script>
+</body>
+</html>
