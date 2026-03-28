@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Hive | Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container topbar-inner">
+    <a class="brand" href="index.html">
+      <div class="logo">TH</div>
+      <div>
+        <div style="font-weight:800">Task Hive</div>
+        <div class="muted" style="font-size:.84rem">Web3 Görev Platformu</div>
+      </div>
+    </a>
+    <nav class="nav">
+      <a class="" href="index.html">Ana Sayfa</a>
+      <a class="active" href="dashboard.html">Dashboard</a>
+      <a class="" href="tasks.html">Görevler</a>
+      <a class="" href="leaderboard.html">Liderlik</a>
+      <a class="" href="admin.html">Admin</a>
+    </nav>
+    <div class="actions">
+      <a class="btn-ghost" href="auth.html">Giriş / Kayıt</a>
+      <span class="wallet-chip">Firebase Ready</span>
+    </div>
+  </div>
+</header>
+
+  <div class="container page">
+    <div class="layout">
+
+<aside class="sidebar">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <div>
+      <strong>Kontrol Merkezi</strong>
+      <div class="muted" style="font-size:.92rem">Task Hive Full Setup</div>
+    </div>
+    <span class="pill">Live Ready</span>
+  </div>
+  <div class="menu">
+    <a class="active" href="dashboard.html"><span class="icon">◫</span><span>Dashboard</span></a>
+    <a class="" href="tasks.html"><span class="icon">✓</span><span>Görev Merkezi</span></a>
+    <a class="" href="leaderboard.html"><span class="icon">★</span><span>Liderlik</span></a>
+    <a class="" href="admin.html"><span class="icon">⚙</span><span>Admin Paneli</span></a>
+    <a class="" href="index.html"><span class="icon">⌂</span><span>Landing Page</span></a>
+  </div>
+  <div class="wallet-box" style="margin-top:18px">
+    <div class="muted" style="font-size:.92rem">Kurulum Notu</div>
+    <p class="muted" style="margin-top:10px;line-height:1.7">
+      <small class="code">firebase.js</small> içindeki config alanını doldurduğunda proje canlı veriye bağlanır.
+    </p>
+  </div>
+  <div class="promo-box" style="margin-top:18px">
+    <div class="badge">Email Auth</div>
+    <h3 style="margin:14px 0 8px">Hazır veri akışı</h3>
+    <p class="muted" style="line-height:1.7">Kayıt ol, görev ekle, görevleri listele, kanıt gönder, leaderboard göster.</p>
+  </div>
+</aside>
+
+      <main>
+<section class="section-title">
+  <div>
+    <h1>Kullanıcı Dashboard</h1>
+    <p>Bu sayfa giriş yapan kullanıcının profil ve submission verilerini Firestore’dan çeker.</p>
+  </div>
+  <div class="filter-row">
+    <span class="badge">Live Firestore</span>
+    <span class="badge">User Metrics</span>
+  </div>
+</section>
+
+<div id="dashNotice" class="notice hide" style="margin-bottom:18px"></div>
+
+<section class="grid-4">
+  <div class="metric-card"><span class="muted">Kullanıcı</span><strong id="dashUsername">-</strong><div class="muted" id="dashEmail">-</div></div>
+  <div class="metric-card"><span class="muted">Toplam puan</span><strong id="dashPoints">0</strong><div class="muted">users.points</div></div>
+  <div class="metric-card"><span class="muted">Gönderilen kanıt</span><strong id="dashCompleted">0</strong><div class="muted">submissions</div></div>
+  <div class="metric-card"><span class="muted">Bekleyen inceleme</span><strong id="dashPending">0</strong><div class="muted">pending</div></div>
+</section>
+
+<section class="grid-2" style="margin-top:24px">
+  <div class="panel">
+    <div class="panel-head">
+      <div><h3>Ödül Tahmini</h3><div class="muted" style="font-size:.92rem">Demo çarpanı</div></div>
+    </div>
+    <div class="panel-body">
+      <div class="notice-card">
+        <strong style="display:block;font-size:2rem;margin-bottom:8px" id="dashEstimate">$0.00</strong>
+        <p class="muted" style="line-height:1.8">Bu hesaplama sadece demo amaçlıdır. İstersen sonraki aşamada görev onayı sonrası otomatik puan artışı da eklenebilir.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head">
+      <div><h3>Hızlı Linkler</h3><div class="muted" style="font-size:.92rem">Canlı sayfalara geç</div></div>
+    </div>
+    <div class="panel-body list">
+      <a class="list-item" href="tasks.html"><div class="rank">✓</div><div><div class="task-title">Görevleri Gör</div><div class="meta"><span>tasks koleksiyonu</span></div></div><div class="reward"><span class="status live">Aç</span></div></a>
+      <a class="list-item" href="admin.html"><div class="rank">⚙</div><div><div class="task-title">Admin Paneli</div><div class="meta"><span>Görev ekleme</span></div></div><div class="reward"><span class="status review">Aç</span></div></a>
+      <a class="list-item" href="leaderboard.html"><div class="rank">★</div><div><div class="task-title">Leaderboard</div><div class="meta"><span>users.points</span></div></div><div class="reward"><span class="status live">Aç</span></div></a>
+    </div>
+  </div>
+</section>
+</main>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container footer-row">
+      <div>© 2026 Task Hive. Firebase ready sürüm.</div>
+      <div>HTML + CSS + JavaScript + Firebase</div>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>
