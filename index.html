@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Hive | Ana Sayfa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container topbar-inner">
+    <a class="brand" href="index.html">
+      <div class="logo">TH</div>
+      <div>
+        <div style="font-weight:800">Task Hive</div>
+        <div class="muted" style="font-size:.84rem">Web3 Görev Platformu</div>
+      </div>
+    </a>
+    <nav class="nav">
+      <a class="active" href="index.html">Ana Sayfa</a>
+      <a class="" href="dashboard.html">Dashboard</a>
+      <a class="" href="tasks.html">Görevler</a>
+      <a class="" href="leaderboard.html">Liderlik</a>
+      <a class="" href="admin.html">Admin</a>
+    </nav>
+    <div class="actions">
+      <a class="btn-ghost" href="auth.html">Giriş / Kayıt</a>
+      <span class="wallet-chip">Firebase Ready</span>
+    </div>
+  </div>
+</header>
+
+  <div class="container page">
+    <div class="layout">
+
+<aside class="sidebar">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <div>
+      <strong>Kontrol Merkezi</strong>
+      <div class="muted" style="font-size:.92rem">Task Hive Full Setup</div>
+    </div>
+    <span class="pill">Live Ready</span>
+  </div>
+  <div class="menu">
+    <a class="" href="dashboard.html"><span class="icon">◫</span><span>Dashboard</span></a>
+    <a class="" href="tasks.html"><span class="icon">✓</span><span>Görev Merkezi</span></a>
+    <a class="" href="leaderboard.html"><span class="icon">★</span><span>Liderlik</span></a>
+    <a class="" href="admin.html"><span class="icon">⚙</span><span>Admin Paneli</span></a>
+    <a class="active" href="index.html"><span class="icon">⌂</span><span>Landing Page</span></a>
+  </div>
+  <div class="wallet-box" style="margin-top:18px">
+    <div class="muted" style="font-size:.92rem">Kurulum Notu</div>
+    <p class="muted" style="margin-top:10px;line-height:1.7">
+      <small class="code">firebase.js</small> içindeki config alanını doldurduğunda proje canlı veriye bağlanır.
+    </p>
+  </div>
+  <div class="promo-box" style="margin-top:18px">
+    <div class="badge">Email Auth</div>
+    <h3 style="margin:14px 0 8px">Hazır veri akışı</h3>
+    <p class="muted" style="line-height:1.7">Kayıt ol, görev ekle, görevleri listele, kanıt gönder, leaderboard göster.</p>
+  </div>
+</aside>
+
+      <main>
+<section class="hero">
+  <div class="hero-card">
+    <div>
+      <span class="pill">Yeni nesil görev ekonomisi</span>
+      <h1>Topluluğunu <span class="gradient">büyüt,</span><br>kullanıcını <span class="gradient">ödüllendir.</span></h1>
+      <p>Task Hive; Web3 projeleri ve topluluk yöneticileri için modern görev altyapısı sunar. Bu sürüm Firebase bağlantısına hazırdır ve email authentication ile çalışır.</p>
+      <div class="hero-actions">
+        <a class="btn" href="auth.html">Hemen Başla</a>
+        <a class="btn-secondary" href="dashboard.html">Dashboard</a>
+      </div>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-card"><strong>12.4K</strong><span class="muted">Aktif kullanıcı hedefi</span></div>
+      <div class="stat-card"><strong>184</strong><span class="muted">Görev kapasitesi</span></div>
+      <div class="stat-card"><strong>$46K</strong><span class="muted">Ödül hacmi vizyonu</span></div>
+    </div>
+  </div>
+  <div class="preview">
+    <div>
+      <h3>Hazır Modüller</h3>
+      <div class="muted" style="font-size:.92rem">Kurulumdan sonra çalışan akış</div>
+    </div>
+    <div class="list">
+      <div class="list-item"><div class="rank">1</div><div><div class="task-title">Email ile kayıt / giriş</div><div class="meta"><span>Firebase Auth</span></div></div><div class="reward"><span class="status live">Hazır</span></div></div>
+      <div class="list-item"><div class="rank">2</div><div><div class="task-title">Admin görev ekleme</div><div class="meta"><span>Firestore</span></div></div><div class="reward"><span class="status live">Hazır</span></div></div>
+      <div class="list-item"><div class="rank">3</div><div><div class="task-title">Kullanıcı proof gönderme</div><div class="meta"><span>submissions koleksiyonu</span></div></div><div class="reward"><span class="status live">Hazır</span></div></div>
+      <div class="list-item"><div class="rank">4</div><div><div class="task-title">Puan bazlı leaderboard</div><div class="meta"><span>users koleksiyonu</span></div></div><div class="reward"><span class="status live">Hazır</span></div></div>
+    </div>
+  </div>
+</section>
+<section style="margin-top:28px">
+  <div class="grid-3">
+    <div class="mini-card"><strong>Auth Sistemi</strong><p class="muted" style="margin-top:10px;line-height:1.8">Kullanıcı kayıt olurken otomatik olarak <small class="code">users</small> koleksiyonuna eklenir.</p></div>
+    <div class="mini-card"><strong>Task Sistemi</strong><p class="muted" style="margin-top:10px;line-height:1.8">Admin panelinden eklenen görevler anında tasks sayfasında görünür.</p></div>
+    <div class="mini-card"><strong>Submission Sistemi</strong><p class="muted" style="margin-top:10px;line-height:1.8">Kullanıcı kanıt gönderir, admin bunları submissions bölümünde görür.</p></div>
+  </div>
+</section>
+</main>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container footer-row">
+      <div>© 2026 Task Hive. Firebase ready sürüm.</div>
+      <div>HTML + CSS + JavaScript + Firebase</div>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+
+</body>
+</html>
