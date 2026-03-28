@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Hive | Görevler</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="container topbar-inner">
+    <a class="brand" href="index.html">
+      <div class="logo">TH</div>
+      <div>
+        <div style="font-weight:800">Task Hive</div>
+        <div class="muted" style="font-size:.84rem">Web3 Görev Platformu</div>
+      </div>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Ana Sayfa</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a class="active" href="tasks.html">Görevler</a>
+      <a href="leaderboard.html">Liderlik</a>
+      <a href="admin.html">Admin</a>
+    </nav>
+    <div class="actions">
+      <a class="btn-ghost" href="auth.html">Giriş / Kayıt</a>
+      <span class="wallet-chip">Firebase Ready</span>
+    </div>
+  </div>
+</header>
+
+<div class="container page">
+  <div class="layout">
+    <aside class="sidebar">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <strong>Kontrol Merkezi</strong>
+          <div class="muted" style="font-size:.92rem">Task Hive Full Setup</div>
+        </div>
+        <span class="pill">Live Ready</span>
+      </div>
+      <div class="menu">
+        <a href="dashboard.html"><span class="icon">◫</span><span>Dashboard</span></a>
+        <a class="active" href="tasks.html"><span class="icon">✓</span><span>Görev Merkezi</span></a>
+        <a href="leaderboard.html"><span class="icon">★</span><span>Liderlik</span></a>
+        <a href="admin.html"><span class="icon">⚙</span><span>Admin Paneli</span></a>
+        <a href="index.html"><span class="icon">⌂</span><span>Landing Page</span></a>
+      </div>
+      <div class="wallet-box" style="margin-top:18px">
+        <div class="muted" style="font-size:.92rem">Görev Durumu</div>
+        <p class="muted" style="margin-top:10px;line-height:1.7">
+          Admin onayından sonra görev artık aktif listeden çıkar ve <strong style="color:#eef4ff">Tamamlanan Görevler</strong> bölümüne taşınır.
+        </p>
+      </div>
+    </aside>
+
+    <main>
+      <section class="section-title">
+        <div>
+          <h1>Görev Merkezi</h1>
+          <p>Aktif görevler ayrı, admin onayıyla tamamlanan görevler ayrı listelenir.</p>
+        </div>
+        <div class="filter-row">
+          <button class="chip-btn active" data-filter>Tümü</button>
+          <button class="chip-btn" data-filter>Sosyal</button>
+          <button class="chip-btn" data-filter>On-chain</button>
+          <button class="chip-btn" data-filter>UGC</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div><h3>Aktif Görevler</h3><div class="muted" style="font-size:.92rem">Henüz tamamlanmamış görevler</div></div>
+        </div>
+        <div class="panel-body">
+          <div id="taskList" class="task-list"></div>
+        </div>
+      </section>
+
+      <section class="panel" style="margin-top:24px">
+        <div class="panel-head">
+          <div><h3>Tamamlanan Görevler</h3><div class="muted" style="font-size:.92rem">Admin tarafından onaylanan görevler</div></div>
+        </div>
+        <div class="panel-body">
+          <div id="completedTaskList" class="task-list"></div>
+        </div>
+      </section>
+
+      <section class="panel" style="margin-top:24px">
+        <div class="panel-head">
+          <div><h3>X Görevi Kanıt Gönder</h3><div class="muted" style="font-size:.92rem">X hesap linki ve ekran görüntüsü ile submissions koleksiyonuna kaydeder</div></div>
+        </div>
+        <div class="panel-body">
+          <form id="proofForm" class="form-grid">
+            <div class="input-row">
+              <label>Görev</label>
+              <select id="proofTaskId" required>
+                <option value="">Görev yükleniyor...</option>
+              </select>
+            </div>
+
+            <div class="split">
+              <div class="input-row">
+                <label>X kullanıcı adın</label>
+                <input id="xUsername" type="text" placeholder="@kullaniciadi" required />
+              </div>
+              <div class="input-row">
+                <label>X profil linkin</label>
+                <input id="xProfileLink" type="url" placeholder="https://x.com/kullaniciadi" required />
+              </div>
+            </div>
+
+            <div class="input-row">
+              <label>Ekran görüntüsü linki</label>
+              <input id="screenshotLink" type="url" placeholder="https://... ekran görüntüsü linki" required />
+            </div>
+
+            <div class="input-row">
+              <label>Ek kanıt linki / gönderi linki</label>
+              <input id="proofLink" type="text" placeholder="İsteğe bağlı ek kanıt veya yorum linki" />
+            </div>
+
+            <div class="input-row">
+              <label>Not</label>
+              <textarea id="proofNote" placeholder="Örn: Hesabı takip ettim ve sabit gönderiyi beğendim."></textarea>
+            </div>
+
+            <button class="btn" type="submit">Kanıt Gönder</button>
+            <div id="proofNotice" class="notice hide"></div>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container footer-row">
+    <div>© 2026 Task Hive. Firebase ready sürüm.</div>
+    <div>HTML + CSS + JavaScript + Firebase</div>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script type="module" src="tasks.js"></script>
+</body>
+</html>
